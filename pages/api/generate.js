@@ -25,21 +25,22 @@ const generateAction = async (req, res) => {
   )}. Eric Cartman, from South Park, shuts everyone up and says ${
     req.body.userInput
   } is ...`;
-  const secondPromptCompletion = await openai.createCompletion({
-    model: 'text-davinci-003',
-    // don't want to use previous completion as a prompt, too many tokens used
-    // @todo use the last line of the previous completion as part of the prompt
-    // example: `Continue with South Park characters: ${basePromptOutput.text}. Cartman shuts everyone and says...`
-    // slice off 50 words from the end of the previous completion
+  // @todo fix undefined error
+  // const secondPromptCompletion = await openai.createCompletion({
+  //   model: 'text-davinci-003',
+  //   // don't want to use previous completion as a prompt, too many tokens used
+  //   // @todo use the last line of the previous completion as part of the prompt
+  //   // example: `Continue with South Park characters: ${basePromptOutput.text}. Cartman shuts everyone and says...`
+  //   // slice off 50 words from the end of the previous completion
 
-    prompt: `${secondPrompt}`,
-    // increase the temperature to make the output more creative
-    temperature: 0.95,
-    max_tokens: 100,
-  });
-  const secondPromptOutput = secondPromptCompletion.data.choices.pop();
+  //   prompt: `${secondPrompt}`,
+  //   // increase the temperature to make the output more creative
+  //   temperature: 0.95,
+  //   max_tokens: 100,
+  // });
+  // const secondPromptOutput = secondPromptCompletion.data.choices.pop();
 
-  res.status(200).json({ output: basePromptOutput + secondPromptOutput });
+  res.status(200).json({ output: basePromptOutput });
 };
 
 export default generateAction;
