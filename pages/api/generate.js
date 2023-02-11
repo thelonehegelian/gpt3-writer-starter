@@ -16,7 +16,7 @@ const generateAction = async (req, res) => {
     model: 'text-davinci-003',
     prompt: `${basePromptPrefix}${req.body.userInput}`,
     temperature: 0.87,
-    max_tokens: 100,
+    max_tokens: 250,
   });
   const basePromptOutput = baseCompletion.data.choices.pop();
   const secondPrompt = `${basePromptOutput.text.slice(
@@ -25,7 +25,7 @@ const generateAction = async (req, res) => {
   )}. Eric Cartman, from South Park, shuts everyone up and says ${
     req.body.userInput
   } is ...`;
-  // @todo fix undefined error
+  // @todo fix undefined error, its probably because res does not wait for the second prompt to finish
   // const secondPromptCompletion = await openai.createCompletion({
   //   model: 'text-davinci-003',
   //   // don't want to use previous completion as a prompt, too many tokens used
