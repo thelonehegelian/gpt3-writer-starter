@@ -6,7 +6,7 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const basePromptPrefix = `Explain concepts using various characters from Simpsons, make it like as if they are having a conversation, make it funny and memorable and use each characters catch phrase.
+const basePromptPrefix = `Explain using various characters from The Simpsons. Make it like as if they are having a conversation. Make it funny and memorable. Use each characters catch phrase.
 Explain: `;
 const generateAction = async (req, res) => {
   // Run first prompt
