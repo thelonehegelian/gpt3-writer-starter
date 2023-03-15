@@ -9,3 +9,4 @@ Type any concept or "thing" you want explained and it will be explained to you b
 - After this run `npm run dev`. This will start the server
 
 
+![image](https://user-images.githubusercontent.com/24369269/225172179-b889c335-1cc7-4c79-a62c-95dd48cec426.png)
